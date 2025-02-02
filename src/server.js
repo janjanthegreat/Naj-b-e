@@ -70,7 +70,7 @@ app.get('/api/articles/:name', async function(req, res) {
     res.json({
         upvotes: article.upvotes,
         comments: article.comments,
-        upvoteIds: article.upvoteIds || [], // Ensure upvoteIds is included
+        upvoteIds: article.upvoteIds || [], // Ensure upvoteIds is included 
     });
 });
 
