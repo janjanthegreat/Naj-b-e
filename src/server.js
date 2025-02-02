@@ -9,13 +9,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // LOCAL HOST PATH
-// const credentials = JSON.parse(
-//     fs.readFileSync('./credentials.json')
-// );
+const credentials = JSON.parse(
+    fs.readFileSync('./credentials.json')
+);
 
-// Read the credentials file from Render's Secret Files location
-const credentialsPath = '/etc/secrets/credentials.json';
-const credentials = JSON.parse(fs.readFileSync(credentialsPath));
+// // Read the credentials file from Render's Secret Files location
+// const credentialsPath = '/etc/secrets/credentials.json';
+// const credentials = JSON.parse(fs.readFileSync(credentialsPath));
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials)
@@ -37,11 +37,11 @@ async function connectToDB() {
         useUnifiedTopology: true, // Ensures that you use a unified topology
         ssl: true,  // Enforces SSL connection
         tls: true,  // Explicitly forces TLS
-        tlsAllowInvalidCertificates: true, // If you are unsure about cert validation
+        tlsAllowInvalidCertificates: true, // If you are unsure about cert validation 
     });
 
     await client.connect();
-    db = client.db('full-stack-react-db');
+    db = client.db('full-stack-react-db'); 
 }
 
 const app = express();
