@@ -1,30 +1,18 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Ignore node_modules in both front-end and back-end
+node_modules/
 
-back-end/node_modules
-dist
-dist-ssr
+# Ignore build folders
+dist/
+dist-ssr/
+
+# Ignore local configuration files
 *.local
+
+# Ignore sensitive backend files
 back-end/credentials.json
-back-end/dist
 back-end/.env
 back-end/prod-env.yaml
-back-end/mongodb-windows-x86_64-8.0.4-signed.msi
-back-emd/mongosh-2.3.8-x64.msi
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Ignore large files
+back-end/mongodb-windows-x86_64-8.0.4-signed.msi
+back-end/mongosh-2.3.8-x64.msi
