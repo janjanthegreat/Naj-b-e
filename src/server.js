@@ -27,14 +27,18 @@ async function connectToDB(){
     const uri = !process.env.MONGODB_USERNAME 
     ? 'mongodb://127.0.0.1:27017'
     : `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.xwyvl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+    
 
     const client = new MongoClient(uri, {
         serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
-    });
+          version: ServerApiVersion.v1,
+          strict: true,
+          deprecationErrors: true,
+        },
+        useUnifiedTopology: true,  // Ensures that you use a unified topology
+        ssl: true,  // Enforces SSL connection
+        tlsAllowInvalidCertificates: true, // If you are unsure about cert validation
+      });
 
     await client.connect();
     db = client.db('full-stack-react-db');
