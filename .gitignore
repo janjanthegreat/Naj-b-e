@@ -15,6 +15,8 @@ back-end/credentials.json
 back-end/dist
 back-end/.env
 back-end/prod-env.yaml
+back-end/mongodb-windows-x86_64-8.0.4-signed.msi
+back-emd/mongosh-2.3.8-x64.msi
 
 # Editor directories and files
 .vscode/*
