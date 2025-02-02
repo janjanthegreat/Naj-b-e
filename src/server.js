@@ -8,9 +8,14 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const credentials = JSON.parse(
-    fs.readFileSync('./credentials.json')
-);
+// LOCAL HOST PATH
+// const credentials = JSON.parse(
+//     fs.readFileSync('./credentials.json')
+// );
+
+// Read the credentials file from Render's Secret Files location
+const credentialsPath = '/etc/secrets/credentials.json';
+const credentials = JSON.parse(fs.readFileSync(credentialsPath));
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials)
